@@ -8,6 +8,7 @@ jobs:
   performance-test:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -26,7 +27,7 @@ jobs:
         run: |
           mkdir -p results reports
           jmeter/bin/jmeter -n \
-            -t "Summary Report.jmx" \
+            -t tests/load_test.jmx \
             -l results/results.jtl \
             -e -o reports/
 
